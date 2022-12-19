@@ -13,6 +13,8 @@
 		60E6BF7429508E6700F26D4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60E6BF7229508E6700F26D4C /* LaunchScreen.storyboard */; };
 		60E6BF7C2950A5E200F26D4C /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E6BF7B2950A5E200F26D4C /* FeedViewController.swift */; };
 		60E6BF7E2950A5F500F26D4C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E6BF7D2950A5F500F26D4C /* ProfileViewController.swift */; };
+		60E6BF812951014C00F26D4C /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E6BF802951014C00F26D4C /* PostViewController.swift */; };
+		60E6BF832951022300F26D4C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E6BF822951022300F26D4C /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		60E6BF7529508E6700F26D4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60E6BF7B2950A5E200F26D4C /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		60E6BF7D2950A5F500F26D4C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		60E6BF802951014C00F26D4C /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		60E6BF822951022300F26D4C /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				60E6BF6729508E6500F26D4C /* AppDelegate.swift */,
+				60E6BF802951014C00F26D4C /* PostViewController.swift */,
+				60E6BF822951022300F26D4C /* Post.swift */,
 				60E6BF7F2950A71800F26D4C /* TabBarControllers */,
 				60E6BF7029508E6700F26D4C /* Assets.xcassets */,
 				60E6BF7229508E6700F26D4C /* LaunchScreen.storyboard */,
@@ -148,7 +154,9 @@
 				60E6BF6C29508E6500F26D4C /* TabBarViewController.swift in Sources */,
 				60E6BF7C2950A5E200F26D4C /* FeedViewController.swift in Sources */,
 				60E6BF7E2950A5F500F26D4C /* ProfileViewController.swift in Sources */,
+				60E6BF832951022300F26D4C /* Post.swift in Sources */,
 				60E6BF6829508E6500F26D4C /* AppDelegate.swift in Sources */,
+				60E6BF812951014C00F26D4C /* PostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
