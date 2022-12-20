@@ -10,31 +10,44 @@ import UIKit
 
 class FeedViewController: UIViewController{
     
-    let post = Post(title: "Test")
+    let post = Post(title: "New Post")
     
     var buttonOnScreen: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("press me", for: .normal)
-        button.tintColor = .black
+        button.tintColor = .white
         button.titleLabel?.font = .boldSystemFont(ofSize: 24)
-        button.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        button.widthAnchor.constraint(equalToConstant: 100).isActive = true
         button.layer.cornerRadius = 20
         button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.white.cgColor
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     @objc func buttonTapped(sender: UIButton){
-        navigationController?.present(ProfileViewController(), animated: true)
+        self.navigationController?.pushViewController(PostViewController(), animated: true)
           }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .blue
         view.addSubview(buttonOnScreen)
+        setConstraints()
     }
    
     
+}
+
+extension FeedViewController {
+    
+    private func setConstraints(){
+        NSLayoutConstraint.activate([
+            buttonOnScreen.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            buttonOnScreen.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            buttonOnScreen.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            buttonOnScreen.heightAnchor.constraint(equalToConstant: 40),
+            buttonOnScreen.widthAnchor.constraint(equalToConstant: 60),
+        ])
+    }
 }

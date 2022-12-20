@@ -10,7 +10,8 @@ import UIKit
 class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
-        title = "Пост"
+        self.title = "Post"
+        view.backgroundColor = .white
+     
     }
 }
