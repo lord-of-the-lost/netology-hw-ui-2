@@ -1,16 +1,13 @@
 //
-//  FeedViewController.swift
+//  InfoViewController.swift
 //  Navigation
 //
-//  Created by Николай Игнатов on 19.12.2022.
+//  Created by Николай Игнатов on 20.12.2022.
 //
 
 import Foundation
 import UIKit
-
-class FeedViewController: UIViewController{
-    
-    private  let post = Post(title: "New Post")
+class InfoViewController: UIViewController {
     
     private var buttonOnScreen: UIButton = {
         let button = UIButton(type: .system)
@@ -26,20 +23,36 @@ class FeedViewController: UIViewController{
     }()
     
     @objc private func buttonTapped(sender: UIButton){
-        let postViewController = PostViewController()
-        postViewController.title = post.title
-        self.navigationController?.pushViewController(postViewController, animated: true)
-          }
+        let alert = UIAlertController(title: "Info",
+                                      message: "Homework is completed",
+                                      preferredStyle: UIAlertController.Style.alert)
+        
+        let awesomeAction = UIAlertAction(title: "Awesome",
+                                          style: UIAlertAction.Style.default){
+                                          UIAlertAction in
+                                          print("все круто")
+                                          }
+        
+        let anyCommentsAction = UIAlertAction(title: "Any comments",
+                                              style: UIAlertAction.Style.default){
+                                              UIAlertAction in
+                                              print("Какие будут замечания?")
+                                              }
+        
+        alert.addAction(awesomeAction)
+        alert.addAction(anyCommentsAction)
+        self.present(alert, animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        view.backgroundColor = .gray
         view.addSubview(buttonOnScreen)
         setConstraints()
     }
 }
 
-extension FeedViewController {
+extension InfoViewController {
     private func setConstraints(){
         NSLayoutConstraint.activate([
             buttonOnScreen.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -50,3 +63,4 @@ extension FeedViewController {
         ])
     }
 }
+
