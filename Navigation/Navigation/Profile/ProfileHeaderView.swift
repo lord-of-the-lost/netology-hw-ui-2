@@ -9,11 +9,17 @@ import UIKit
 
 class ProfileHeaderView: UIView {
     
-    private let profileImage: UIImageView = {
+    private var imageSize: CGFloat = 100
+    
+    private lazy var profileImage: UIImageView = {
         let image = UIImage(named: "profileImage")
         let imageView = UIImageView(image: image)
         imageView.layer.borderColor = UIColor.white.cgColor
         imageView.layer.borderWidth = 3
+        imageView.frame.size = CGSize(width: imageSize, height: imageSize)
+        imageView.layer.cornerRadius = imageSize / 2
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
@@ -22,6 +28,7 @@ class ProfileHeaderView: UIView {
         text.text = "Nikolay Ignatov"
         text.font = .systemFont(ofSize: 18, weight: .bold)
         text.textColor = .black
+        text.translatesAutoresizingMaskIntoConstraints = false
         return text
     }()
     
@@ -30,6 +37,7 @@ class ProfileHeaderView: UIView {
         text.text = "iOS developer"
         text.font = .systemFont(ofSize: 14, weight: .regular)
         text.textColor = .gray
+        text.translatesAutoresizingMaskIntoConstraints = false
         return text
     }()
     
@@ -38,12 +46,24 @@ class ProfileHeaderView: UIView {
         button.setTitle("Show status", for: .normal)
         button.backgroundColor = .blue
         button.tintColor = .white
+        button.layer.cornerRadius = 4
         button.addTarget(self, action: #selector(showStatusButtonTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
      @objc private func showStatusButtonTapped(){
          print(statusText.text ?? "Status not found")
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        showView()
+        backgroundColor = .lightGray
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func showView(){
@@ -62,8 +82,15 @@ class ProfileHeaderView: UIView {
         NSLayoutConstraint.activate([
             profileImage.widthAnchor.constraint(equalToConstant: 100),
             profileImage.heightAnchor.constraint(equalToConstant: 100),
-            profileImage.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            profileImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             profileImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            headerText.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27),
+            headerText.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 16),
+            statusText.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 16),
+            statusText.bottomAnchor.constraint(equalTo: showStatusButton.topAnchor, constant: -34),
+            showStatusButton.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 16),
+            showStatusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            showStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])
     }
 }
