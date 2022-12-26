@@ -14,6 +14,7 @@ class ProfileHeaderView: UIView {
     private lazy var profileImage: UIImageView = {
         let image = UIImage(named: "profileImage")
         let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.borderColor = UIColor.white.cgColor
         imageView.layer.borderWidth = 3
         imageView.frame.size = CGSize(width: imageSize, height: imageSize)
@@ -48,6 +49,10 @@ class ProfileHeaderView: UIView {
         button.tintColor = .white
         button.layer.cornerRadius = 4
         button.addTarget(self, action: #selector(showStatusButtonTapped), for: .touchUpInside)
+        button.layer.shadowOffset = CGSize(width: 4, height: 4)
+        button.layer.shadowRadius = 4
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.7
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -59,7 +64,6 @@ class ProfileHeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         showView()
-        backgroundColor = .lightGray
     }
     
     required init?(coder: NSCoder) {
@@ -90,7 +94,9 @@ class ProfileHeaderView: UIView {
             statusText.bottomAnchor.constraint(equalTo: showStatusButton.topAnchor, constant: -34),
             showStatusButton.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 16),
             showStatusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            showStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
+            showStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            showStatusButton.widthAnchor.constraint(equalTo: widthAnchor, constant: -32),
+            showStatusButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
 }

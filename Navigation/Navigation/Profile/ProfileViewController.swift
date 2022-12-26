@@ -17,12 +17,8 @@ class ProfileViewController: UIViewController{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-       // view.safeAreaLayoutGuide.owningView?.backgroundColor = .lightGray
+        view.backgroundColor = .lightGray
         title = "Профиль"
 
     }
-//    override func viewWillLayoutSubviews() {
-//        profileHeaderView.frame = view.frame
-//        view.addSubview(profileHeaderView)
-//    }
 }
