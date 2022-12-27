@@ -19,6 +19,5 @@ class ProfileViewController: UIViewController{
         super.viewDidLoad()
         view.backgroundColor = .lightGray
         title = "Профиль"
-
     }
 }
