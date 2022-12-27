@@ -10,6 +10,7 @@ import UIKit
 class ProfileHeaderView: UIView {
     
     private var imageSize: CGFloat = 100
+    private var statusText: String = ""
     
     private lazy var profileImage: UIImageView = {
         let image = UIImage(named: "profileImage")
@@ -33,7 +34,7 @@ class ProfileHeaderView: UIView {
         return text
     }()
     
-    private let statusText: UILabel = {
+    private let statusTextLabel: UILabel = {
         let text = UILabel()
         text.text = "iOS developer"
         text.font = .systemFont(ofSize: 14, weight: .regular)
@@ -73,11 +74,11 @@ class ProfileHeaderView: UIView {
     }()
     
      @objc private func showStatusButtonTapped(){
-         print(statusText.text ?? "Status not found")
+         statusTextLabel.text = statusText
     }
     
     @objc private func setNewStatus(sender: UITextField){
-        statusText.text = sender.text
+        statusText = sender.text ?? "Status not found"
    }
     
     override init(frame: CGRect) {
@@ -97,7 +98,7 @@ class ProfileHeaderView: UIView {
     private func setupView(){
         self.addSubview(profileImage)
         self.addSubview(headerText)
-        self.addSubview(statusText)
+        self.addSubview(statusTextLabel)
         self.addSubview(statusTextField)
         self.addSubview(showStatusButton)
     }
@@ -110,11 +111,11 @@ class ProfileHeaderView: UIView {
             profileImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             headerText.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27),
             headerText.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 16),
-            statusText.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 16),
-            statusText.bottomAnchor.constraint(equalTo: showStatusButton.topAnchor, constant: -74),
+            statusTextLabel.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 16),
+            statusTextLabel.bottomAnchor.constraint(equalTo: showStatusButton.topAnchor, constant: -74),
             statusTextField.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 16),
             statusTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            statusTextField.topAnchor.constraint(equalTo: statusText.bottomAnchor, constant: 15),
+            statusTextField.topAnchor.constraint(equalTo: statusTextLabel.bottomAnchor, constant: 15),
             statusTextField.heightAnchor.constraint(equalToConstant: 40),
             showStatusButton.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 56),
             showStatusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
