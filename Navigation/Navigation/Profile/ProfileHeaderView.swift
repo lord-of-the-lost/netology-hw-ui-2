@@ -10,7 +10,7 @@ import UIKit
 class ProfileHeaderView: UIView {
     
     private var imageSize: CGFloat = 100
-    private var statusText: String = ""
+    private var statusText: String?
     
     private lazy var profileImage: UIImageView = {
         let image = UIImage(named: "profileImage")
@@ -74,11 +74,15 @@ class ProfileHeaderView: UIView {
     }()
     
      @objc private func showStatusButtonTapped(){
-         statusTextLabel.text = statusText
+         guard let newStatus = statusText else { return }
+         guard newStatus.isEmpty else {
+             return  statusTextLabel.text = newStatus
+         }
+         return
     }
     
     @objc private func setNewStatus(sender: UITextField){
-        statusText = sender.text ?? "Status not found"
+        statusText = sender.text
    }
     
     override init(frame: CGRect) {
