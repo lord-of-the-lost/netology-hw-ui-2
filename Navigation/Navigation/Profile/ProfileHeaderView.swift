@@ -87,6 +87,7 @@ class ProfileHeaderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.translatesAutoresizingMaskIntoConstraints = false
         showView()
     }
     
@@ -125,7 +126,7 @@ class ProfileHeaderView: UIView {
             showStatusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             showStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             showStatusButton.widthAnchor.constraint(equalTo: widthAnchor, constant: -32),
-            showStatusButton.heightAnchor.constraint(equalToConstant: 50)
+            showStatusButton.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
 }
