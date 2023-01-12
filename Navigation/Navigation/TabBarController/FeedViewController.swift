@@ -10,8 +10,6 @@ import UIKit
 
 class FeedViewController: UIViewController{
     
-    private  let post = Post(title: "New Post")
-    
     private lazy var buttonOnScreen: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("  press me  ", for: .normal)
