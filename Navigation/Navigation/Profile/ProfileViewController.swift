@@ -38,6 +38,7 @@ class ProfileViewController: UIViewController{
         super.viewDidLoad()
         view.backgroundColor = .lightGray
         title = "Профиль"
+        navigationController?.navigationBar.isHidden = false
         setupView()
     }
 }
