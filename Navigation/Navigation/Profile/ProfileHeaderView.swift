@@ -45,6 +45,7 @@ class ProfileHeaderView: UIView {
     
     private lazy var statusTextField: UITextField = {
         let textField = UITextField()
+        textField.placeholder = "Set a new status"
         textField.font = .systemFont(ofSize: 15, weight: .regular)
         textField.textColor = .black
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
@@ -76,7 +77,9 @@ class ProfileHeaderView: UIView {
      @objc private func showStatusButtonTapped(){
          guard let newStatus = statusText else { return }
          guard newStatus.isEmpty else {
-             return  statusTextLabel.text = newStatus
+             statusTextLabel.text = newStatus
+             statusTextField.text = nil
+             return 
          }
          return
     }
