@@ -50,6 +50,7 @@ class ProfileViewController: UIViewController{
         view.addSubview(tableView)
         setupConstraints()
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "PostTableViewCell")
+        tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: "PhotosTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
     }
