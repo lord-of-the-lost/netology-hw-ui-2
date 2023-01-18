@@ -64,9 +64,6 @@ extension FeedViewController {
         NSLayoutConstraint.activate([
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-//            buttonOnScreen.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-//            buttonOnScreen.heightAnchor.constraint(equalToConstant: 40),
-//            buttonOnScreen.widthAnchor.constraint(equalToConstant: 60),
         ])
     }
 }

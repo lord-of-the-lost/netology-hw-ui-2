@@ -9,7 +9,7 @@ import UIKit
 
 class PostTableViewCell: UITableViewCell {
     
-     let titleLabel: UILabel = {
+    let titleLabel: UILabel = {
         let title = UILabel()
         title.textColor = .black
         title.numberOfLines = 2
@@ -18,15 +18,16 @@ class PostTableViewCell: UITableViewCell {
         return title
     }()
     
-     let postImage: UIImageView = {
+    let postImage: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
         image.backgroundColor = .black
+        image.clipsToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
-     let descriptionLabel: UILabel = {
+    let descriptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemGray
         label.numberOfLines = 0
@@ -35,7 +36,7 @@ class PostTableViewCell: UITableViewCell {
         return label
     }()
     
-     let countOfLikes: UILabel = {
+    let countOfLikes: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = .systemFont(ofSize: 16, weight: .regular)
@@ -43,7 +44,7 @@ class PostTableViewCell: UITableViewCell {
         return label
     }()
     
-     let countOfViews: UILabel = {
+    let countOfViews: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = .systemFont(ofSize: 16, weight: .regular )
@@ -75,17 +76,22 @@ class PostTableViewCell: UITableViewCell {
 private extension PostTableViewCell {
     func setConstraints(){
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            postImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
-            postImage.widthAnchor.constraint(equalTo: widthAnchor),
-            postImage.heightAnchor.constraint(equalTo: widthAnchor),
-            descriptionLabel.topAnchor.constraint(equalTo: postImage.bottomAnchor, constant: 16),
-            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            countOfLikes.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            countOfLikes.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 16),
-            countOfViews.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            countOfViews.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 16),
+        titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+        titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+        titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+        postImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
+        postImage.leadingAnchor.constraint(equalTo: leadingAnchor),
+        postImage.trailingAnchor.constraint(equalTo: trailingAnchor),
+        postImage.heightAnchor.constraint(equalTo: postImage.widthAnchor),
+        descriptionLabel.topAnchor.constraint(equalTo: postImage.bottomAnchor, constant: 16),
+        descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 16),
+        descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+        countOfLikes.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 16),
+        countOfLikes.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+        countOfLikes.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
+        countOfViews.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 16),
+        countOfViews.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+        countOfViews.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
         ])
     }
 }
