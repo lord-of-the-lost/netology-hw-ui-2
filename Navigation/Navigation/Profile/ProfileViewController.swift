@@ -10,31 +10,6 @@ import UIKit
 
 class ProfileViewController: UIViewController{
     
-    private var posts = [Post(autor: "apple.com",
-                              description: "Swift is cool language",
-                              image: "swift",
-                              likes: 100,
-                              views: 150),
-                         
-                         Post(autor: "apple.com",
-                              description: "Introduce UIKit for iOS developers",
-                              image: "uiKit",
-                              likes: 70,
-                              views: 100),
-                         
-                         Post(autor: "uncle Bob",
-                              description: "SOLID principals",
-                              image: "solid",
-                              likes: 999,
-                              views: 1000),
-                         
-                         Post(autor: "apple.com",
-                              description: "Keychain is a cool and safty system storage",
-                              image: "keychain",
-                              likes: 50,
-                              views: 200)
-    ]
-    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.rowHeight = UITableView.automaticDimension
@@ -47,11 +22,15 @@ class ProfileViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarController?.tabBar.isHidden = false
+        let headerView = ProfileHeaderView()
+        headerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 250)
+        tableView.tableHeaderView = headerView
         view.addSubview(tableView)
         setupConstraints()
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "PostTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
+       
     }
 }
 
@@ -80,20 +59,6 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         cell.countOfLikes.text = String("Likes: \(data.likes)")
         cell.countOfViews.text = String("Views: \(data.views)")
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 0 {
-            return ProfileHeaderView()
-        }
-        return nil
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return 220
-        }
-        return 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
