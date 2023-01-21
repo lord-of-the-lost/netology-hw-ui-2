@@ -25,6 +25,8 @@ class PhotosTableViewCell: UITableViewCell {
     private let backArrow: UIImageView = {
        let image = UIImageView()
        image.image = UIImage(systemName: "arrow.right")
+        image.tintColor = .black
+        image.contentMode = .scaleAspectFill
        image.translatesAutoresizingMaskIntoConstraints = false
        return image
    }()
@@ -34,7 +36,7 @@ class PhotosTableViewCell: UITableViewCell {
        image.image = UIImage(named: "1")
         image.clipsToBounds = true
        image.layer.cornerRadius = 6
-       image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
        image.translatesAutoresizingMaskIntoConstraints = false
        return image
    }()
@@ -44,7 +46,7 @@ class PhotosTableViewCell: UITableViewCell {
        image.image = UIImage(named: "2")
         image.clipsToBounds = true
        image.layer.cornerRadius = 6
-       image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
        image.translatesAutoresizingMaskIntoConstraints = false
        return image
    }()
@@ -54,7 +56,7 @@ class PhotosTableViewCell: UITableViewCell {
        image.image = UIImage(named: "3")
        image.clipsToBounds = true
        image.layer.cornerRadius = 6
-       image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
        image.translatesAutoresizingMaskIntoConstraints = false
        return image
    }()
@@ -64,7 +66,7 @@ class PhotosTableViewCell: UITableViewCell {
        image.image = UIImage(named: "4")
         image.clipsToBounds = true
        image.layer.cornerRadius = 6
-       image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
        image.translatesAutoresizingMaskIntoConstraints = false
        return image
    }()
@@ -97,8 +99,10 @@ private extension PhotosTableViewCell {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 12),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
-            backArrow.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 12),
+            backArrow.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
             backArrow.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
+            backArrow.widthAnchor.constraint(equalToConstant: 24),
+            backArrow.heightAnchor.constraint(equalToConstant: 24),
             firstImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
             firstImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
             firstImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 12),
@@ -107,13 +111,19 @@ private extension PhotosTableViewCell {
             secondImage.leadingAnchor.constraint(equalTo: firstImage.trailingAnchor, constant: 8),
             secondImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
             secondImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 12),
+            secondImage.widthAnchor.constraint(equalToConstant: imageWidthHeight),
+            secondImage.heightAnchor.constraint(equalToConstant: imageWidthHeight),
             thirdImage.leadingAnchor.constraint(equalTo: secondImage.trailingAnchor, constant: 8),
             thirdImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
             thirdImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 12),
+            thirdImage.widthAnchor.constraint(equalToConstant: imageWidthHeight),
+            thirdImage.heightAnchor.constraint(equalToConstant: imageWidthHeight),
             fourthImage.leadingAnchor.constraint(equalTo: thirdImage.trailingAnchor, constant: 8),
             fourthImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 12),
             fourthImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
             fourthImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 12),
+            fourthImage.widthAnchor.constraint(equalToConstant: imageWidthHeight),
+            fourthImage.heightAnchor.constraint(equalToConstant: imageWidthHeight),
         ])
     }
 }

@@ -31,7 +31,7 @@ class ProfileViewController: UIViewController{
         tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: "PhotosTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
-       
+        
     }
 }
 
@@ -47,19 +47,34 @@ private extension ProfileViewController {
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        if section == 0 {
+            return 1
+        } else {
+            return posts.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as! PostTableViewCell
-        let data = posts[indexPath.row]
-        cell.titleLabel.text = data.autor
-        cell.postImage.image = UIImage(named: data.image)
-        cell.descriptionLabel.text = data.description
-        cell.countOfLikes.text = String("Likes: \(data.likes)")
-        cell.countOfViews.text = String("Views: \(data.views)")
-        return cell
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PhotosTableViewCell", for: indexPath) as! PhotosTableViewCell
+            return cell
+            
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as! PostTableViewCell
+            let data = posts[indexPath.row]
+            cell.titleLabel.text = data.autor
+            cell.postImage.image = UIImage(named: data.image)
+            cell.descriptionLabel.text = data.description
+            cell.countOfLikes.text = String("Likes: (data.likes)")
+            cell.countOfViews.text = String("Views: (data.views)")
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
