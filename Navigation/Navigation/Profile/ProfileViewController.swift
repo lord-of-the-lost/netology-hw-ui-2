@@ -71,8 +71,8 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             cell.titleLabel.text = data.autor
             cell.postImage.image = UIImage(named: data.image)
             cell.descriptionLabel.text = data.description
-            cell.countOfLikes.text = String("Likes: (data.likes)")
-            cell.countOfViews.text = String("Views: (data.views)")
+            cell.countOfLikes.text = String("Likes: \(data.likes)")
+            cell.countOfViews.text = String("Views: \(data.views)")
             return cell
         }
     }
