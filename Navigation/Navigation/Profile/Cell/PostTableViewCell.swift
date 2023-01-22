@@ -53,7 +53,7 @@ class PostTableViewCell: UITableViewCell {
     }()
     
     private func setupViews() {
-        backgroundColor = .clear
+        backgroundColor = .white
         selectionStyle = .none
         addSubview(titleLabel)
         addSubview(postImage)

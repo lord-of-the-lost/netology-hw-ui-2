@@ -12,9 +12,9 @@ class ProfileViewController: UIViewController{
     
     private let tableView: UITableView = {
         let tableView = UITableView()
+        tableView.backgroundColor = .systemGray6
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 500
-        tableView.backgroundColor = .white
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -22,6 +22,7 @@ class ProfileViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarController?.tabBar.isHidden = false
+        view.backgroundColor = .systemGray6
         let headerView = ProfileHeaderView()
         headerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 250)
         tableView.tableHeaderView = headerView

@@ -72,7 +72,7 @@ class PhotosTableViewCell: UITableViewCell {
    }()
     
     private func setupViews() {
-        backgroundColor = .clear
+        backgroundColor = .white
         selectionStyle = .none
         addSubview(titleLabel)
         addSubview(backArrow)
