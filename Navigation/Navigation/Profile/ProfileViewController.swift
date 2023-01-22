@@ -52,6 +52,12 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         2
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 && indexPath.row == 0 {
+            navigationController?.pushViewController(PhotosViewController(), animated: true)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
