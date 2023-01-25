@@ -5,7 +5,7 @@
 //  Created by Николай Игнатов on 19.12.2022.
 //
 
-import Foundation
+import UIKit
 
 struct Post {
     let autor: String

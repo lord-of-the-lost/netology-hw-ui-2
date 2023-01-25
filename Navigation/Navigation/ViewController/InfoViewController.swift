@@ -5,8 +5,8 @@
 //  Created by Николай Игнатов on 20.12.2022.
 //
 
-import Foundation
 import UIKit
+
 class InfoViewController: UIViewController {
     
     private var buttonOnScreen: UIButton = {

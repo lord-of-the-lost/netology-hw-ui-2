@@ -12,7 +12,7 @@ class ProfileHeaderView: UIView {
     private var imageSize: CGFloat = 100
     private var statusText: String?
     
-    private lazy var profileImage: UIImageView = {
+    lazy var profileImage: UIImageView = {
         let image = UIImage(named: "profileImage")
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFill
