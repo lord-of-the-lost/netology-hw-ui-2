@@ -10,8 +10,6 @@ import UIKit
 
 class FeedViewController: UIViewController{
     
-    private  let post = Post(title: "New Post")
-    
     private lazy var buttonOnScreen: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("  press me  ", for: .normal)
@@ -66,9 +64,6 @@ extension FeedViewController {
         NSLayoutConstraint.activate([
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-//            buttonOnScreen.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-//            buttonOnScreen.heightAnchor.constraint(equalToConstant: 40),
-//            buttonOnScreen.widthAnchor.constraint(equalToConstant: 60),
         ])
     }
 }

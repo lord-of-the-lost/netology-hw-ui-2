@@ -45,6 +45,7 @@ class ProfileHeaderView: UIView {
     
     private lazy var statusTextField: UITextField = {
         let textField = UITextField()
+        textField.placeholder = "Set a new status"
         textField.font = .systemFont(ofSize: 15, weight: .regular)
         textField.textColor = .black
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
@@ -76,7 +77,9 @@ class ProfileHeaderView: UIView {
      @objc private func showStatusButtonTapped(){
          guard let newStatus = statusText else { return }
          guard newStatus.isEmpty else {
-             return  statusTextLabel.text = newStatus
+             statusTextLabel.text = newStatus
+             statusTextField.text = nil
+             return
          }
          return
     }
@@ -95,12 +98,19 @@ class ProfileHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        guard let superview = superview else { return }
+        widthAnchor.constraint(equalTo: superview.widthAnchor).isActive = true
+    }
+    
     func showView(){
         setupView()
         setConstraints()
     }
     
     private func setupView(){
+        self.backgroundColor = .systemGray6
         self.addSubview(profileImage)
         self.addSubview(headerText)
         self.addSubview(statusTextLabel)
@@ -125,6 +135,7 @@ class ProfileHeaderView: UIView {
             showStatusButton.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 56),
             showStatusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             showStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            showStatusButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
             showStatusButton.widthAnchor.constraint(equalTo: widthAnchor, constant: -32),
             showStatusButton.heightAnchor.constraint(equalToConstant: 50),
         ])
