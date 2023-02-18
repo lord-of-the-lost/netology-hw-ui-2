@@ -5,7 +5,7 @@
 //  Created by Николай Игнатов on 19.12.2022.
 //
 
-import Foundation
+import StorageService
 import UIKit
 
 class ProfileViewController: UIViewController{
@@ -23,6 +23,9 @@ class ProfileViewController: UIViewController{
         super.viewDidLoad()
         tabBarController?.tabBar.isHidden = false
         view.backgroundColor = .systemGray6
+        #if DEBUG
+        view.backgroundColor = .red
+        #endif
         let headerView = ProfileHeaderView()
         headerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 250)
         tableView.tableHeaderView = headerView

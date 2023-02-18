@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct Post {
-    let autor: String
-    let description: String
-    let image: String
-    let likes: Int
-    let views: Int
-
+public struct Post {
+    public let autor: String
+    public let description: String
+    public let image: String
+    public let likes: Int
+    public let views: Int
+    
 }
 
-var posts = [Post(autor: "apple.com",
+public var posts = [Post(autor: "apple.com",
                          description: "Swift is a cool language",
                          image: "swift",
                          likes: 100,
