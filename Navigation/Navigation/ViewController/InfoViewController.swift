@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 class InfoViewController: UIViewController {
     
-    private var buttonOnScreen: UIButton = {
+    private lazy var buttonOnScreen: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("press me", for: .normal)
         button.tintColor = .white

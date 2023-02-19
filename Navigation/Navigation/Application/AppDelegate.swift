@@ -20,8 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabBarController.tabBar.tintColor = .blue
         tabBarController.tabBar.backgroundColor = .white
         
-        let feedNavigationController = UINavigationController()
-        let profileNavigationController = UINavigationController()
         let feedViewController = FeedViewController()
         
         let feedItem = UITabBarItem(title: "Новости",
