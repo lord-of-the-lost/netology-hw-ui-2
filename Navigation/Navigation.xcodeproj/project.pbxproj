@@ -15,6 +15,8 @@
 		604152D929A164EF002A3228 /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 604152D329A164EF002A3228 /* StorageService.framework */; };
 		604152DA29A164EF002A3228 /* StorageService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 604152D329A164EF002A3228 /* StorageService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		604152E029A166AB002A3228 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E6BF822951022300F26D4C /* Post.swift */; };
+		604152E729A4B7BB002A3228 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 604152E629A4B7BB002A3228 /* iOSIntPackage */; };
+		604152EA29A4B7ED002A3228 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 604152E929A4B7ED002A3228 /* SnapKit */; };
 		606D96B72970915A00DDC429 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606D96B62970915A00DDC429 /* PostTableViewCell.swift */; };
 		60B9E5F7295C9E0E00DF6E53 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9E5F6295C9E0E00DF6E53 /* LogInViewController.swift */; };
 		60E6BF6829508E6500F26D4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E6BF6729508E6500F26D4C /* AppDelegate.swift */; };
@@ -85,7 +87,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				604152EA29A4B7ED002A3228 /* SnapKit in Frameworks */,
 				604152D929A164EF002A3228 /* StorageService.framework in Frameworks */,
+				604152E729A4B7BB002A3228 /* iOSIntPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +240,10 @@
 				604152D829A164EF002A3228 /* PBXTargetDependency */,
 			);
 			name = Navigation;
+			packageProductDependencies = (
+				604152E629A4B7BB002A3228 /* iOSIntPackage */,
+				604152E929A4B7ED002A3228 /* SnapKit */,
+			);
 			productName = Navigation;
 			productReference = 60E6BF6429508E6500F26D4C /* Navigation.app */;
 			productType = "com.apple.product-type.application";
@@ -267,6 +275,10 @@
 				Base,
 			);
 			mainGroup = 60E6BF5B29508E6500F26D4C;
+			packageReferences = (
+				604152E529A4B7BB002A3228 /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
+				604152E829A4B7ED002A3228 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 60E6BF6529508E6500F26D4C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -609,6 +621,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		604152E529A4B7BB002A3228 /* XCRemoteSwiftPackageReference "iOSIntPackage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TrueMax/iOSIntPackage";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		604152E829A4B7ED002A3228 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		604152E629A4B7BB002A3228 /* iOSIntPackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 604152E529A4B7BB002A3228 /* XCRemoteSwiftPackageReference "iOSIntPackage" */;
+			productName = iOSIntPackage;
+		};
+		604152E929A4B7ED002A3228 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 604152E829A4B7ED002A3228 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 60E6BF5C29508E6500F26D4C /* Project object */;
 }
