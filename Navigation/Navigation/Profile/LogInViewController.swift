@@ -9,8 +9,6 @@ import UIKit
 
 class LogInViewController: UIViewController {
     
-    private let currentUserService = CurrentUserService(user: User(login: "test", fullName: "Test", avatar: UIImage(systemName: "photo")!, status: "testStatus"))
-    
     private var isKeyboardVisible = false
     
     private lazy var logoImage: UIImageView = {
@@ -74,7 +72,14 @@ class LogInViewController: UIViewController {
     
     @objc private func loginButtonTapped() {
         guard let login = loginTextField.text else { return }
-        currentUserService.authorization(login: login) { user in
+        
+       #if DEBUG
+       let userService: UserService = TestUserService()
+       #else
+       let userService: UserService = CurrentUserService(user: User(login: "Nikolay", fullName: "Nikolay Ignatov", avatar: UIImage(named: "profileImage")!, status: "iOS developer"))
+       #endif
+        
+        userService.authorization(login: login) { user in
             if let user = user {
                 DispatchQueue.main.async {
                     let profileVC = ProfileViewController()
