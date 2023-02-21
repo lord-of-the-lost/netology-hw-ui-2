@@ -5,6 +5,7 @@
 //  Created by Николай Игнатов on 19.12.2022.
 //
 
+import iOSIntPackage
 import StorageService
 import UIKit
 
@@ -78,8 +79,13 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as! PostTableViewCell
             let data = posts[indexPath.row]
+            let processor = ImageProcessor()
+            DispatchQueue.main.async {
+                processor.processImage(sourceImage: UIImage(named: data.image)!, filter: .noir) { outputImage in
+                    cell.postImage.image = outputImage
+                }
+            }
             cell.titleLabel.text = data.autor
-            cell.postImage.image = UIImage(named: data.image)
             cell.descriptionLabel.text = data.description
             cell.countOfLikes.text = String("Likes: \(data.likes)")
             cell.countOfViews.text = String("Views: \(data.views)")
