@@ -9,6 +9,8 @@ import UIKit
 
 class LogInViewController: UIViewController {
     
+    private let currentUserService = CurrentUserService(user: User(login: "test", fullName: "Test", avatar: UIImage(systemName: "photo")!, status: "testStatus"))
+    
     private var isKeyboardVisible = false
     
     private lazy var logoImage: UIImageView = {
@@ -65,13 +67,28 @@ class LogInViewController: UIViewController {
         button.alpha = button.state == .normal ? 1 : 0.8
         button.layer.cornerRadius = 10
         button.layer.masksToBounds = true
-        button.addTarget(self, action: #selector(logInButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    @objc private func logInButtonTapped(){
-        navigationController?.pushViewController(ProfileViewController(), animated: true)
+    @objc private func loginButtonTapped() {
+        guard let login = loginTextField.text else { return }
+        currentUserService.authorization(login: login) { user in
+            if let user = user {
+                DispatchQueue.main.async {
+                    let profileVC = ProfileViewController()
+                    profileVC.user = user
+                    self.navigationController?.pushViewController(profileVC, animated: true)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "Ошибка", message: "Неверный логин", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
     }
     
     @objc private func hideKeyboard(){

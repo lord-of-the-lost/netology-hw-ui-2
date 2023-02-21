@@ -10,6 +10,10 @@ import UIKit
 
 class ProfileViewController: UIViewController{
     
+    var user: User?
+    
+    private let headerView = ProfileHeaderView()
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .systemGray6
@@ -26,7 +30,6 @@ class ProfileViewController: UIViewController{
         #if DEBUG
         view.backgroundColor = .red
         #endif
-        let headerView = ProfileHeaderView()
         headerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 250)
         tableView.tableHeaderView = headerView
         view.addSubview(tableView)
@@ -35,7 +38,10 @@ class ProfileViewController: UIViewController{
         tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: "PhotosTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
-        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        headerView.configureHeaderView(user: user)
     }
 }
 

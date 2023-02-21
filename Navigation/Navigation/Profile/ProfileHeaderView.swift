@@ -104,6 +104,13 @@ class ProfileHeaderView: UIView {
         widthAnchor.constraint(equalTo: superview.widthAnchor).isActive = true
     }
     
+    func configureHeaderView(user: User?) {
+        guard let user = user else { return }
+        profileImage.image = user.avatar
+        headerText.text = user.fullName
+        statusTextLabel.text = user.status
+    }
+    
     func showView(){
         setupView()
         setConstraints()
