@@ -5,9 +5,10 @@
 //  Created by Николай Игнатов on 26.12.2022.
 //
 
+import SnapKit
 import UIKit
 
-class ProfileHeaderView: UIView {
+final class ProfileHeaderView: UIView {
     
     private var imageSize: CGFloat = 100
     private var statusText: String?
@@ -21,7 +22,6 @@ class ProfileHeaderView: UIView {
         imageView.frame.size = CGSize(width: imageSize, height: imageSize)
         imageView.layer.cornerRadius = imageSize / 2
         imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
@@ -30,7 +30,6 @@ class ProfileHeaderView: UIView {
         text.text = "Nikolay Ignatov"
         text.font = .systemFont(ofSize: 18, weight: .bold)
         text.textColor = .black
-        text.translatesAutoresizingMaskIntoConstraints = false
         return text
     }()
     
@@ -39,7 +38,6 @@ class ProfileHeaderView: UIView {
         text.text = "iOS developer"
         text.font = .systemFont(ofSize: 14, weight: .regular)
         text.textColor = .gray
-        text.translatesAutoresizingMaskIntoConstraints = false
         return text
     }()
     
@@ -54,7 +52,6 @@ class ProfileHeaderView: UIView {
         textField.layer.cornerRadius = 12
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.black.cgColor
-        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.addTarget(self, action: #selector(setNewStatus), for: .editingChanged)
         return textField
     }()
@@ -70,27 +67,25 @@ class ProfileHeaderView: UIView {
         button.layer.shadowRadius = 4
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOpacity = 0.7
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-     @objc private func showStatusButtonTapped(){
-         guard let newStatus = statusText else { return }
-         guard newStatus.isEmpty else {
-             statusTextLabel.text = newStatus
-             statusTextField.text = nil
-             return
-         }
-         return
+    @objc private func showStatusButtonTapped(){
+        guard let newStatus = statusText else { return }
+        guard newStatus.isEmpty else {
+            statusTextLabel.text = newStatus
+            statusTextField.text = nil
+            return
+        }
+        return
     }
     
     @objc private func setNewStatus(sender: UITextField){
         statusText = sender.text
-   }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.translatesAutoresizingMaskIntoConstraints = false
         showView()
     }
     
@@ -100,8 +95,9 @@ class ProfileHeaderView: UIView {
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
-        guard let superview = superview else { return }
-        widthAnchor.constraint(equalTo: superview.widthAnchor).isActive = true
+        self.snp.makeConstraints { make in
+            make.width.equalToSuperview()
+        }
     }
     
     func showView(){
@@ -119,25 +115,36 @@ class ProfileHeaderView: UIView {
     }
     
     private func setConstraints(){
-        NSLayoutConstraint.activate([
-            profileImage.widthAnchor.constraint(equalToConstant: 100),
-            profileImage.heightAnchor.constraint(equalToConstant: 100),
-            profileImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            profileImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-            headerText.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27),
-            headerText.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 16),
-            statusTextLabel.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 16),
-            statusTextLabel.bottomAnchor.constraint(equalTo: showStatusButton.topAnchor, constant: -74),
-            statusTextField.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 16),
-            statusTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            statusTextField.topAnchor.constraint(equalTo: statusTextLabel.bottomAnchor, constant: 15),
-            statusTextField.heightAnchor.constraint(equalToConstant: 40),
-            showStatusButton.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 56),
-            showStatusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            showStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            showStatusButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
-            showStatusButton.widthAnchor.constraint(equalTo: widthAnchor, constant: -32),
-            showStatusButton.heightAnchor.constraint(equalToConstant: 50),
-        ])
+        profileImage.snp.makeConstraints { make in
+            make.width.height.equalTo(100)
+            make.leading.equalTo(16)
+            make.top.equalTo(16)
+        }
+        
+        headerText.snp.makeConstraints { make in
+            make.leading.equalTo(profileImage.snp.trailing).offset(16)
+            make.top.equalTo(27)
+        }
+        
+        showStatusButton.snp.makeConstraints { make in
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
+            make.top.equalTo(profileImage.snp.bottom).offset(56)
+            make.bottom.equalTo(-20)
+            make.height.equalTo(50)
+        }
+        
+        statusTextLabel.snp.makeConstraints { make in
+            make.leading.equalTo(profileImage.snp.trailing).offset(16)
+            make.bottom.equalTo(showStatusButton.snp.top).offset(-74)
+        }
+        
+        statusTextField.snp.makeConstraints { make in
+            make.leading.equalTo(profileImage.snp.trailing).offset(16)
+            make.trailing.equalTo(-16)
+            make.top.equalTo(statusTextLabel.snp.bottom).offset(15)
+            make.height.equalTo(40)
+        }
+        
     }
 }
