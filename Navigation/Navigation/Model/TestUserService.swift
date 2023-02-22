@@ -9,7 +9,9 @@ import UIKit
 
 final class TestUserService: UserService {
     
-    private let user: User
+    var password: String
+    
+    var user: User
     
     init() {
         self.user = User(
@@ -18,13 +20,6 @@ final class TestUserService: UserService {
             avatar: UIImage(systemName: "photo")!,
             status: "Active"
         )
-    }
-    
-    func authorization(login: String, completion: @escaping (User?) -> Void) {
-        guard user.login == login else {
-            completion(nil)
-            return
-        }
-        completion(user)
+        self.password = "test"
     }
 }

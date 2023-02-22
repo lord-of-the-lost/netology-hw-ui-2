@@ -8,19 +8,13 @@
 import UIKit
 
 final class CurrentUserService: UserService {
+     
+    var user = User(login: "hip", fullName: "Hipster Cat", avatar: UIImage(named: "2")!, status: "Waiting for smth...")
     
-    private let user: User
+    var password: String
     
-    init(user: User) {
-        self.user = user
-    }
-    
-    func authorization(login: String, completion: @escaping (User?) -> Void) {
-        guard user.login == login else {
-            completion(nil)
-            return
-        }
-        completion(user)
+    init() {
+        self.password = "password"
     }
 }
 

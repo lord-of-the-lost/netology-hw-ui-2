@@ -71,27 +71,25 @@ class LogInViewController: UIViewController {
     }()
     
     @objc private func loginButtonTapped() {
-        guard let login = loginTextField.text else { return }
+        guard let login = loginTextField.text, let password = passwordTextField.text else { return }
         
-       #if DEBUG
-       let userService: UserService = TestUserService()
-       #else
-       let userService: UserService = CurrentUserService(user: User(login: "Nikolay", fullName: "Nikolay Ignatov", avatar: UIImage(named: "profileImage")!, status: "iOS developer"))
-       #endif
+        #if DEBUG
+        let userService: UserService = TestUserService()
+        #else
+        let userService: UserService = CurrentUserService()
+        #endif
         
-        userService.authorization(login: login) { user in
-            if let user = user {
-                DispatchQueue.main.async {
-                    let profileVC = ProfileViewController()
-                    profileVC.user = user
-                    self.navigationController?.pushViewController(profileVC, animated: true)
-                }
-            } else {
-                DispatchQueue.main.async {
-                    let alert = UIAlertController(title: "Ошибка", message: "Неверный логин", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default))
-                    self.present(alert, animated: true, completion: nil)
-                }
+        let user = userService.checkLogin(login: login, password: password)
+        
+        if user != nil {
+            let profileVC = ProfileViewController()
+            profileVC.user = user
+            self.navigationController?.pushViewController(profileVC, animated: true)
+        } else {
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Ошибка", message: "Неверный логин", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }

@@ -8,7 +8,9 @@
 import UIKit
 
 protocol UserService {
-    func authorization(login: String, completion: @escaping (User?) -> Void)
+    var user: User { get }
+    var password: String { get }
+    func checkLogin(login: String, password: String) -> User?
 }
 
 class User {
@@ -22,5 +24,11 @@ class User {
         self.fullName = fullName
         self.avatar = avatar
         self.status = status
+    }
+}
+
+extension UserService {
+    func checkLogin(login: String, password: String) -> User? {
+        return login == user.login && password == password ? user : nil
     }
 }
