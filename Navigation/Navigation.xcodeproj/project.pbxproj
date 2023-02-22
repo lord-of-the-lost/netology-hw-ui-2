@@ -91,7 +91,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				604152EA29A4B7ED002A3228 /* SnapKit in Frameworks */,
 				604152D929A164EF002A3228 /* StorageService.framework in Frameworks */,
+				604152E729A4B7BB002A3228 /* iOSIntPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +247,10 @@
 				604152D829A164EF002A3228 /* PBXTargetDependency */,
 			);
 			name = Navigation;
+			packageProductDependencies = (
+				604152E629A4B7BB002A3228 /* iOSIntPackage */,
+				604152E929A4B7ED002A3228 /* SnapKit */,
+			);
 			productName = Navigation;
 			productReference = 60E6BF6429508E6500F26D4C /* Navigation.app */;
 			productType = "com.apple.product-type.application";
@@ -276,6 +282,10 @@
 				Base,
 			);
 			mainGroup = 60E6BF5B29508E6500F26D4C;
+			packageReferences = (
+				604152E529A4B7BB002A3228 /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
+				604152E829A4B7ED002A3228 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 60E6BF6529508E6500F26D4C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -621,6 +631,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		604152E529A4B7BB002A3228 /* XCRemoteSwiftPackageReference "iOSIntPackage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TrueMax/iOSIntPackage";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		604152E829A4B7ED002A3228 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		604152E629A4B7BB002A3228 /* iOSIntPackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 604152E529A4B7BB002A3228 /* XCRemoteSwiftPackageReference "iOSIntPackage" */;
+			productName = iOSIntPackage;
+		};
+		604152E929A4B7ED002A3228 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 604152E829A4B7ED002A3228 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 60E6BF5C29508E6500F26D4C /* Project object */;
 }
