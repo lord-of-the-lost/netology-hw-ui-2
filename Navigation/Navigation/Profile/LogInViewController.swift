@@ -65,13 +65,33 @@ class LogInViewController: UIViewController {
         button.alpha = button.state == .normal ? 1 : 0.8
         button.layer.cornerRadius = 10
         button.layer.masksToBounds = true
-        button.addTarget(self, action: #selector(logInButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    @objc private func logInButtonTapped(){
-        navigationController?.pushViewController(ProfileViewController(), animated: true)
+    @objc private func loginButtonTapped() {
+        guard let login = loginTextField.text, let password = passwordTextField.text else { return }
+        
+        #if DEBUG
+        let userService: UserService = TestUserService()
+        #else
+        let userService: UserService = CurrentUserService()
+        #endif
+        
+        let user = userService.checkLogin(login: login, password: password)
+        
+        if user != nil {
+            let profileVC = ProfileViewController()
+            profileVC.user = user
+            self.navigationController?.pushViewController(profileVC, animated: true)
+        } else {
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Ошибка", message: "Неверный логин", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
     
     @objc private func hideKeyboard(){
