@@ -1,5 +1,5 @@
 //
-//  LogInViewController.swift
+//  LoginViewController.swift
 //  Navigation
 //
 //  Created by Николай Игнатов on 28.12.2022.
@@ -7,7 +7,9 @@
 
 import UIKit
 
-class LogInViewController: UIViewController {
+class LoginViewController: UIViewController {
+    
+    var loginDelegate: LoginViewControllerDelegate?
     
     private var isKeyboardVisible = false
     
@@ -73,21 +75,22 @@ class LogInViewController: UIViewController {
     @objc private func loginButtonTapped() {
         guard let login = loginTextField.text, let password = passwordTextField.text else { return }
         
-        #if DEBUG
-        let userService: UserService = TestUserService()
-        #else
-        let userService: UserService = CurrentUserService()
-        #endif
-        
-        let user = userService.checkLogin(login: login, password: password)
-        
-        if user != nil {
+        if loginDelegate?.check(login: login, password: password) == true {
+            
+            #if DEBUG
+            let userService: UserService = TestUserService()
+            #else
+            let userService: UserService = CurrentUserService()
+            #endif
+            
+            let user = userService.user
+            
             let profileVC = ProfileViewController()
             profileVC.user = user
             self.navigationController?.pushViewController(profileVC, animated: true)
         } else {
             DispatchQueue.main.async {
-                let alert = UIAlertController(title: "Ошибка", message: "Неверный логин", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Ошибка", message: "Неверный логин или пароль", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default))
                 self.present(alert, animated: true, completion: nil)
             }
@@ -146,7 +149,7 @@ class LogInViewController: UIViewController {
     }
 }
 
-private extension LogInViewController {
+private extension LoginViewController {
     func setConstraints(){
         NSLayoutConstraint.activate([
             logoImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120),
