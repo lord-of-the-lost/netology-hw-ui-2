@@ -28,7 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         feedViewController.tabBarItem = feedItem
         
         let profileViewController = LoginViewController()
-        profileViewController.loginDelegate = LoginInspector()
+        let factory = MyLoginFactory()
+        profileViewController.loginDelegate = factory.makeLoginInspector()
         
         let profileItem = UITabBarItem(title: "Профиль",
                                        image: UIImage(systemName:  "person"),
