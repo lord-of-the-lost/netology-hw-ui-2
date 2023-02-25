@@ -27,7 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                     selectedImage: UIImage(systemName: "newspaper.fill"))
         feedViewController.tabBarItem = feedItem
         
-        let profileViewController = LogInViewController()
+        let profileViewController = LoginViewController()
+        let factory = MyLoginFactory()
+        profileViewController.loginDelegate = factory.makeLoginInspector()
+        
         let profileItem = UITabBarItem(title: "Профиль",
                                        image: UIImage(systemName:  "person"),
                                        selectedImage: UIImage(systemName: "person.fill"))
