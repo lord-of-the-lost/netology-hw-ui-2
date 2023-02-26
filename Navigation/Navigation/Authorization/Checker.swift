@@ -15,9 +15,9 @@ final class Checker {
     
     static let shared = Checker()
     
-    private let login = "developer"
+    private let login = "login"
     
-    private let password = "swift"
+    private let password = "password"
     
     func check(login: String, password: String) -> Bool {
         guard login == self.login && password == self.password else { return false }
