@@ -8,37 +8,15 @@
 import Foundation
 import UIKit
 
-class FeedViewController: UIViewController{
+final class FeedViewController: UIViewController{
     
-    private lazy var buttonOnScreen: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("  press me  ", for: .normal)
-        button.tintColor = .white
-        button.titleLabel?.font = .boldSystemFont(ofSize: 24)
-        button.layer.cornerRadius = 20
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.white.cgColor
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    private lazy var secondButtonOnScreen: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("  press me  ", for: .normal)
-        button.tintColor = .white
-        button.titleLabel?.font = .boldSystemFont(ofSize: 24)
-        button.layer.cornerRadius = 20
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.white.cgColor
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    @objc private func buttonTapped(sender: UIButton){
+    private lazy var buttonOnScreen = CustomButton(title: "  press me  ", titleColor: .white, backgroundColor: nil, font: .boldSystemFont(ofSize: 24), cornerRadius: 20, borderWidth: 1, borderColor: .white) {
         self.navigationController?.pushViewController(PostViewController(), animated: true)
-          }
+    }
+    
+    private lazy var secondButtonOnScreen = CustomButton(title: "  press me  ", titleColor: .white, backgroundColor: nil, font: .boldSystemFont(ofSize: 24), cornerRadius: 20, borderWidth: 1, borderColor: .white) {
+        self.navigationController?.pushViewController(PostViewController(), animated: true)
+    }
     
     private lazy var stackView: UIStackView = {
         let stack = UIStackView()

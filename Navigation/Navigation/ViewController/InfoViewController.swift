@@ -5,24 +5,12 @@
 //  Created by Николай Игнатов on 20.12.2022.
 //
 
-import Foundation
 import UIKit
-class InfoViewController: UIViewController {
+
+final class InfoViewController: UIViewController {
     
-    private lazy var buttonOnScreen: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("press me", for: .normal)
-        button.tintColor = .white
-        button.titleLabel?.font = .boldSystemFont(ofSize: 24)
-        button.layer.cornerRadius = 20
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.white.cgColor
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    @objc private func buttonTapped(sender: UIButton){
+    private lazy var buttonOnScreen = CustomButton(title: "press me", titleColor: .white, backgroundColor: nil, font: .boldSystemFont(ofSize: 24), cornerRadius: 20, borderWidth: 1, borderColor: .white) {
+        
         let alert = UIAlertController(title: "Info",
                                       message: "Homework is completed",
                                       preferredStyle: UIAlertController.Style.alert)
