@@ -17,6 +17,8 @@
 		604152E029A166AB002A3228 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E6BF822951022300F26D4C /* Post.swift */; };
 		604152EE29A4D210002A3228 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604152ED29A4D210002A3228 /* User.swift */; };
 		604152F029A4D58F002A3228 /* CurrentUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604152EF29A4D58F002A3228 /* CurrentUserService.swift */; };
+		6042BD7829B4B1BF00BBB537 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6042BD7729B4B1BF00BBB537 /* CustomButton.swift */; };
+		6042BD7A29B4BBE600BBB537 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6042BD7929B4BBE600BBB537 /* FeedModel.swift */; };
 		6062E2EE29A58A7F00ECBF73 /* TestUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062E2ED29A58A7E00ECBF73 /* TestUserService.swift */; };
 		6062E2F229A69C4F00ECBF73 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 604152E929A4B7ED002A3228 /* SnapKit */; };
 		6062E2F529A9825400ECBF73 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062E2F429A9825400ECBF73 /* Checker.swift */; };
@@ -26,7 +28,6 @@
 		606D96B72970915A00DDC429 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606D96B62970915A00DDC429 /* PostTableViewCell.swift */; };
 		60B9E5F7295C9E0E00DF6E53 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9E5F6295C9E0E00DF6E53 /* LoginViewController.swift */; };
 		60E6BF6829508E6500F26D4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E6BF6729508E6500F26D4C /* AppDelegate.swift */; };
-		60E6BF6C29508E6500F26D4C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E6BF6B29508E6500F26D4C /* TabBarViewController.swift */; };
 		60E6BF7129508E6700F26D4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60E6BF7029508E6700F26D4C /* Assets.xcassets */; };
 		60E6BF7429508E6700F26D4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60E6BF7229508E6700F26D4C /* LaunchScreen.storyboard */; };
 		60E6BF7C2950A5E200F26D4C /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E6BF7B2950A5E200F26D4C /* FeedViewController.swift */; };
@@ -68,6 +69,8 @@
 		604152D529A164EF002A3228 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		604152ED29A4D210002A3228 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		604152EF29A4D58F002A3228 /* CurrentUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserService.swift; sourceTree = "<group>"; };
+		6042BD7729B4B1BF00BBB537 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		6042BD7929B4BBE600BBB537 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
 		6062E2ED29A58A7E00ECBF73 /* TestUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUserService.swift; sourceTree = "<group>"; };
 		6062E2F429A9825400ECBF73 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		6062E2F629A9874E00ECBF73 /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
@@ -76,7 +79,6 @@
 		60B9E5F6295C9E0E00DF6E53 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		60E6BF6429508E6500F26D4C /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60E6BF6729508E6500F26D4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		60E6BF6B29508E6500F26D4C /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		60E6BF7029508E6700F26D4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60E6BF7329508E6700F26D4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60E6BF7529508E6700F26D4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				604152ED29A4D210002A3228 /* User.swift */,
 				604152EF29A4D58F002A3228 /* CurrentUserService.swift */,
 				6062E2ED29A58A7E00ECBF73 /* TestUserService.swift */,
+				6042BD7929B4BBE600BBB537 /* FeedModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -154,6 +157,14 @@
 				604152D529A164EF002A3228 /* StorageService.h */,
 			);
 			path = StorageService;
+			sourceTree = "<group>";
+		};
+		6042BD7629B4B1A200BBB537 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6042BD7729B4B1BF00BBB537 /* CustomButton.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		6062E2F329A981F900ECBF73 /* Authorization */ = {
@@ -192,8 +203,8 @@
 				6062E2F329A981F900ECBF73 /* Authorization */,
 				60303AD32959FDB500702DCD /* Model */,
 				60303AD42959FDF400702DCD /* Profile */,
-				60E6BF7F2950A71800F26D4C /* TabBarController */,
 				60E6BF842951D98900F26D4C /* ViewController */,
+				6042BD7629B4B1A200BBB537 /* Helpers */,
 				60E6BF7029508E6700F26D4C /* Assets.xcassets */,
 				60E6BF7229508E6700F26D4C /* LaunchScreen.storyboard */,
 				60E6BF7529508E6700F26D4C /* Info.plist */,
@@ -201,20 +212,12 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		60E6BF7F2950A71800F26D4C /* TabBarController */ = {
-			isa = PBXGroup;
-			children = (
-				60E6BF6B29508E6500F26D4C /* TabBarViewController.swift */,
-				60E6BF7B2950A5E200F26D4C /* FeedViewController.swift */,
-			);
-			path = TabBarController;
-			sourceTree = "<group>";
-		};
 		60E6BF842951D98900F26D4C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				60E6BF852951D9A800F26D4C /* InfoViewController.swift */,
 				60E6BF802951014C00F26D4C /* PostViewController.swift */,
+				60E6BF7B2950A5E200F26D4C /* FeedViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -348,7 +351,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				604152EE29A4D210002A3228 /* User.swift in Sources */,
-				60E6BF6C29508E6500F26D4C /* TabBarViewController.swift in Sources */,
+				6042BD7A29B4BBE600BBB537 /* FeedModel.swift in Sources */,
+				6042BD7829B4B1BF00BBB537 /* CustomButton.swift in Sources */,
 				60E6BF7C2950A5E200F26D4C /* FeedViewController.swift in Sources */,
 				60B9E5F7295C9E0E00DF6E53 /* LoginViewController.swift in Sources */,
 				602D69D3297175C300581393 /* PhotosTableViewCell.swift in Sources */,

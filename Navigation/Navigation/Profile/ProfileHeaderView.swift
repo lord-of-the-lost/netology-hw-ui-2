@@ -70,6 +70,8 @@ final class ProfileHeaderView: UIView {
         return button
     }()
     
+    
+    
     @objc private func showStatusButtonTapped(){
         guard let newStatus = statusText else { return }
         guard newStatus.isEmpty else {
