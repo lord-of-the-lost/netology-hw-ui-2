@@ -11,6 +11,8 @@ final class FeedViewController: UIViewController {
     
     private let feedModel = FeedModel()
     
+    weak var coordinator: FeedCoordinator?
+    
     private lazy var buttonOnScreen = CustomButton(title: "  press me  ", titleColor: .white, backgroundColor: nil, font: .boldSystemFont(ofSize: 24), cornerRadius: 20, borderWidth: 1, borderColor: .white) {
         self.navigationController?.pushViewController(PostViewController(), animated: true)
     }

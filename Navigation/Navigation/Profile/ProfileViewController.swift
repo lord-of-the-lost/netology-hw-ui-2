@@ -9,9 +9,11 @@ import iOSIntPackage
 import StorageService
 import UIKit
 
-class ProfileViewController: UIViewController{
+final class ProfileViewController: UIViewController{
     
     var user: User?
+    
+    weak var coordinator: ProfileCoordinator?
     
     private let headerView = ProfileHeaderView()
     

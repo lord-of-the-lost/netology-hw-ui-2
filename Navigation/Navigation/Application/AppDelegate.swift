@@ -42,8 +42,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
+        
+        let mainCoordinator = AppCoordinator(navigationController: tabBarController)
+        mainCoordinator.start()
+        
         return true
     }
-    
 }
-

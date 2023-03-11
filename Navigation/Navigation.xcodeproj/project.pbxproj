@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6002666529BCB77A0056D738 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6002666429BCB77A0056D738 /* ProfileCoordinator.swift */; };
+		6002666729BCB7B20056D738 /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6002666629BCB7B10056D738 /* FeedCoordinator.swift */; };
 		602D69D3297175C300581393 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602D69D2297175C300581393 /* PhotosTableViewCell.swift */; };
 		602D69D5297177A700581393 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602D69D4297177A700581393 /* PhotosViewController.swift */; };
 		602D69D729717C7800581393 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602D69D629717C7800581393 /* PhotosCollectionViewCell.swift */; };
@@ -19,6 +21,8 @@
 		604152F029A4D58F002A3228 /* CurrentUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604152EF29A4D58F002A3228 /* CurrentUserService.swift */; };
 		6042BD7829B4B1BF00BBB537 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6042BD7729B4B1BF00BBB537 /* CustomButton.swift */; };
 		6042BD7A29B4BBE600BBB537 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6042BD7929B4BBE600BBB537 /* FeedModel.swift */; };
+		6042BD9F29B6344500BBB537 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6042BD9E29B6344500BBB537 /* CoordinatorProtocol.swift */; };
+		6042BDA129B6348500BBB537 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6042BDA029B6348500BBB537 /* AppCoordinator.swift */; };
 		6062E2EE29A58A7F00ECBF73 /* TestUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062E2ED29A58A7E00ECBF73 /* TestUserService.swift */; };
 		6062E2F229A69C4F00ECBF73 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 604152E929A4B7ED002A3228 /* SnapKit */; };
 		6062E2F529A9825400ECBF73 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062E2F429A9825400ECBF73 /* Checker.swift */; };
@@ -61,6 +65,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6002666429BCB77A0056D738 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		6002666629BCB7B10056D738 /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
 		602D69D2297175C300581393 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		602D69D4297177A700581393 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		602D69D629717C7800581393 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -71,6 +77,8 @@
 		604152EF29A4D58F002A3228 /* CurrentUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserService.swift; sourceTree = "<group>"; };
 		6042BD7729B4B1BF00BBB537 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		6042BD7929B4BBE600BBB537 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
+		6042BD9E29B6344500BBB537 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		6042BDA029B6348500BBB537 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		6062E2ED29A58A7E00ECBF73 /* TestUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUserService.swift; sourceTree = "<group>"; };
 		6062E2F429A9825400ECBF73 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		6062E2F629A9874E00ECBF73 /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
@@ -167,6 +175,17 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		6042BD9D29B6341E00BBB537 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				6042BD9E29B6344500BBB537 /* CoordinatorProtocol.swift */,
+				6042BDA029B6348500BBB537 /* AppCoordinator.swift */,
+				6002666429BCB77A0056D738 /* ProfileCoordinator.swift */,
+				6002666629BCB7B10056D738 /* FeedCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
 		6062E2F329A981F900ECBF73 /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +220,7 @@
 			children = (
 				60303AD22959FD8B00702DCD /* Application */,
 				6062E2F329A981F900ECBF73 /* Authorization */,
+				6042BD9D29B6341E00BBB537 /* Coordinators */,
 				60303AD32959FDB500702DCD /* Model */,
 				60303AD42959FDF400702DCD /* Profile */,
 				60E6BF842951D98900F26D4C /* ViewController */,
@@ -350,14 +370,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6002666529BCB77A0056D738 /* ProfileCoordinator.swift in Sources */,
 				604152EE29A4D210002A3228 /* User.swift in Sources */,
 				6042BD7A29B4BBE600BBB537 /* FeedModel.swift in Sources */,
+				6042BD9F29B6344500BBB537 /* CoordinatorProtocol.swift in Sources */,
 				6042BD7829B4B1BF00BBB537 /* CustomButton.swift in Sources */,
 				60E6BF7C2950A5E200F26D4C /* FeedViewController.swift in Sources */,
 				60B9E5F7295C9E0E00DF6E53 /* LoginViewController.swift in Sources */,
+				6042BDA129B6348500BBB537 /* AppCoordinator.swift in Sources */,
 				602D69D3297175C300581393 /* PhotosTableViewCell.swift in Sources */,
 				602D69D729717C7800581393 /* PhotosCollectionViewCell.swift in Sources */,
 				6062E2F729A9874E00ECBF73 /* LoginInspector.swift in Sources */,
+				6002666729BCB7B20056D738 /* FeedCoordinator.swift in Sources */,
 				60E6BF7E2950A5F500F26D4C /* ProfileViewController.swift in Sources */,
 				60E6BF862951D9A800F26D4C /* InfoViewController.swift in Sources */,
 				6062E2EE29A58A7F00ECBF73 /* TestUserService.swift in Sources */,
